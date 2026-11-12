@@ -13,7 +13,7 @@
 
 ## Build output
 
-The build validates `index.html` and `studio.html`, then publishes only those two pages, an SPA app-shell fallback, a Pages `_redirects` rule, a preview-only no-index `_headers` rule, and `deployment.json`. Repository documentation and workflow source files are not copied into the public artifact.
+The build validates `index.html` and `studio.html`, then publishes only those two pages, a preview-only no-index `_headers` rule, and `deployment.json`. Cloudflare Pages automatically falls back to `index.html` for SPA routes when no top-level `404.html` exists. The GitHub Pages workflow creates a separate `404.html` fallback in its upload artifact. Repository documentation and workflow source files are not copied into the public artifact.
 
 ## Product boundaries
 
