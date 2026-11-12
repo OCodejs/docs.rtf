@@ -17,7 +17,7 @@ npx serve dist
 
 ## Triển khai
 - Build command: `npm run build`; output directory: `dist/`.
-- Build chỉ xuất bản `index.html`, `studio.html`, app-shell fallback, SPA redirects và metadata deployment.
+- Build Cloudflare chỉ xuất bản `index.html`, `studio.html` và metadata; Pages tự động fallback về `index.html` cho route SPA khi không có `404.html`. GitHub Pages workflow tạo riêng `404.html` sau bước build.
 - `_redirects` hỗ trợ refresh các SPA route; `404.html` dùng app shell để router xử lý route trực tiếp.
 - `_headers` ngăn index bản preview.
 - GitHub Pages dùng workflow `.github/workflows/pages.yml` làm pipeline tự động duy nhất khi có thay đổi trên `main`. Các workflow `static.yml`, `jekyll-gh-pages.yml` và `jekyll.yml` là legacy/manual-only để tránh nhiều workflow ghi đè cùng Pages deployment.
