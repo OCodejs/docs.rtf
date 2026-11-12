@@ -27,8 +27,9 @@ for (const file of required) {
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const file of required) await cp(resolve(root, file), resolve(output, file));
-await cp(resolve(root, "index.html"), resolve(output, "404.html"));
-await writeFile(resolve(output, "_redirects"), "/* /index.html 200\n");
+// Cloudflare Pages automatically serves index.html for unmatched routes when
+// no top-level 404.html is present. GitHub Pages gets its own 404 fallback
+// in the Pages workflow after this build command.
 await writeFile(resolve(output, "_headers"), "/*\n  X-Robots-Tag: noindex, nofollow\n");
 await writeFile(
   resolve(output, "deployment.json"),
