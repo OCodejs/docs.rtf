@@ -9,7 +9,9 @@
 - Output directory: `dist`
 - Production branch: `main`
 - Automatic Production deployments: disabled
-- Custom domains / DNS: none
+- GitHub Pages environment URL: `http://ocodejs.co/docs.rtf/` (from the successful Pages deployment log).
+- The frontend detects the `/docs.rtf` base path on `ocodejs.co`; Cloudflare Preview remains rooted at `/`.
+- Custom domains / DNS: none changed by this project.
 
 ## Build output
 
