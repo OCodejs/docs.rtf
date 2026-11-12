@@ -25,6 +25,8 @@ jobs:
           node-version: 22
       - name: Validate and build static site
         run: node scripts/build-site.mjs
+      - name: Add GitHub Pages SPA fallback
+        run: cp dist/index.html dist/404.html
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
