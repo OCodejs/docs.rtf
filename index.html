@@ -50,23 +50,47 @@ body{background:linear-gradient(180deg,#000 0%,#030406 58%,#000 100%);-webkit-fo
 }
 
 
-/* Header login CTA: high-contrast white button */
+/* Header login CTA — outlined account control, visible on mobile */
 .nav-actions .login-cta,
 .nav-actions .login-cta:visited{
-  background:#fff !important;
-  color:#08090b !important;
-  border:1px solid #fff !important;
-  font-weight:750;
-  min-width:104px;
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-width:0;
+  min-height:44px;
+  padding:0 16px;
+  background:#000 !important;
+  color:#f7f8fa !important;
+  border:2px solid #f7f8fa !important;
+  font-weight:700;
+  letter-spacing:.01em;
+  white-space:nowrap;
   box-shadow:none;
 }
+.nav-actions .login-icon{width:15px;height:15px;flex:0 0 15px}
 .nav-actions .login-cta:hover,
 .nav-actions .login-cta:focus-visible{
-  background:#e9edf5 !important;
+  background:#f7f8fa !important;
   color:#08090b !important;
-  border-color:#e9edf5 !important;
+  border-color:#f7f8fa !important;
 }
-</style></head><body><div class="top"><div class="wrap"><span>OCODEJS LEARNING PLATFORM / BUILD YOUR CAREER</span><span>HỌC THẬT · LÀM THẬT · PHÁT TRIỂN BỀN VỮNG</span></div></div><header class="header"><div class="wrap nav"><a class="logo" href="https://github.com/OCodeJS" target="_blank" rel="noopener noreferrer" aria-label="OCODEJS GitHub">O<b>CODE</b>JS<span class="pill"> / LEARN</span></a><nav class="links" id="navlinks"><a href="/">Trang chủ</a><a href="/studio.html">AI Studio</a><a href="/kham-pha">Khám phá</a><a href="/danh-muc/javascript-fullstack">Danh mục</a><a href="/gioi-thieu">Giới thiệu</a><a href="/tro-giup/faq">Trợ giúp</a></nav><div class="nav-actions"><a class="btn primary login-cta" href="/dang-nhap" aria-label="Đăng nhập">Đăng nhập</a><button class="menu" id="menu" aria-label="Mở menu">☰</button></div></div></header><main id="app"></main><footer class="footer"><div class="wrap"><div class="footer-grid"><div><a class="logo" href="https://github.com/OCodeJS" target="_blank" rel="noopener noreferrer" aria-label="OCODEJS GitHub">O<b>CODE</b>JS</a><p>Nền tảng đào tạo lập trình viên chuẩn công nghiệp. Học qua dự án thực tế, xây dựng năng lực và sự nghiệp.</p><span class="pill">LEARN · BUILD · SHIP</span></div><div><h4>Chương trình</h4><a href="/kham-pha">Tất cả khóa học</a><a href="/danh-muc/javascript-fullstack">JavaScript</a><a href="/lo-trinh">Lộ trình nghề nghiệp</a></div><div><h4>OCODEJS</h4><a href="/gioi-thieu">Về chúng tôi</a><a href="/lien-he">Liên hệ</a><a href="/blog">Blog kỹ thuật</a></div><div><h4>Hỗ trợ</h4><a href="/tro-giup/faq">Trung tâm trợ giúp</a><a href="/dieu-khoan-su-dung">Điều khoản</a><a href="/chinh-sach-bao-mat">Bảo mật</a></div></div><div class="copyright">© 2026 OCODEJS — LEARN WITH PURPOSE. ALL RIGHTS RESERVED.</div></div></footer><script type="module">
+@media(max-width:850px){
+  .nav-actions .login-cta{display:inline-flex !important}
+}
+@media(max-width:560px){
+  .nav{gap:8px}
+  .logo{font-size:clamp(13px,3.8vw,17px);letter-spacing:-.8px}
+  .nav-actions{gap:7px}
+  .nav-actions .login-cta{min-height:42px;padding:0 10px;font-size:12px;gap:7px}
+  .nav-actions .login-icon{width:14px;height:14px;flex-basis:14px}
+  .menu{width:42px;height:42px;min-width:42px;flex-basis:42px}
+}
+@media(max-width:350px){
+  .nav-actions .login-cta{padding:0 8px;font-size:11px;gap:5px}
+  .nav-actions .login-icon{width:13px;height:13px;flex-basis:13px}
+}
+</style></head><body><div class="top"><div class="wrap"><span>OCODEJS LEARNING PLATFORM / BUILD YOUR CAREER</span><span>HỌC THẬT · LÀM THẬT · PHÁT TRIỂN BỀN VỮNG</span></div></div><header class="header"><div class="wrap nav"><a class="logo" href="https://github.com/OCodeJS" target="_blank" rel="noopener noreferrer" aria-label="OCODEJS GitHub">O<b>CODE</b>JS<span class="pill"> / LEARN</span></a><nav class="links" id="navlinks"><a href="/">Trang chủ</a><a href="/studio.html">AI Studio</a><a href="/kham-pha">Khám phá</a><a href="/danh-muc/javascript-fullstack">Danh mục</a><a href="/gioi-thieu">Giới thiệu</a><a href="/tro-giup/faq">Trợ giúp</a></nav><div class="nav-actions"><a class="btn login-cta" href="/dang-nhap" aria-label="Đăng nhập"><svg class="login-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-1.5a4.5 4.5 0 0 0-4.5-4.5h-7A4.5 4.5 0 0 0 4 19.5V21M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Đăng nhập</span></a><button class="menu" id="menu" aria-label="Mở menu">☰</button></div></div></header><main id="app"></main><footer class="footer"><div class="wrap"><div class="footer-grid"><div><a class="logo" href="https://github.com/OCodeJS" target="_blank" rel="noopener noreferrer" aria-label="OCODEJS GitHub">O<b>CODE</b>JS</a><p>Nền tảng đào tạo lập trình viên chuẩn công nghiệp. Học qua dự án thực tế, xây dựng năng lực và sự nghiệp.</p><span class="pill">LEARN · BUILD · SHIP</span></div><div><h4>Chương trình</h4><a href="/kham-pha">Tất cả khóa học</a><a href="/danh-muc/javascript-fullstack">JavaScript</a><a href="/lo-trinh">Lộ trình nghề nghiệp</a></div><div><h4>OCODEJS</h4><a href="/gioi-thieu">Về chúng tôi</a><a href="/lien-he">Liên hệ</a><a href="/blog">Blog kỹ thuật</a></div><div><h4>Hỗ trợ</h4><a href="/tro-giup/faq">Trung tâm trợ giúp</a><a href="/dieu-khoan-su-dung">Điều khoản</a><a href="/chinh-sach-bao-mat">Bảo mật</a></div></div><div class="copyright">© 2026 OCODEJS — LEARN WITH PURPOSE. ALL RIGHTS RESERVED.</div></div></footer><script type="module">
 import { createBasePathTools } from "./scripts/base-path.mjs";
 const courses=[{id:'js',tag:'FRONTEND',title:'JavaScript nền tảng đến chuyên sâu',desc:'Nắm vững JavaScript hiện đại, DOM, async và kiến trúc ứng dụng.',price:'899.000₫',old:'1.490.000₫',level:'Beginner → Advanced',time:'24 giờ',art:'JS / 01'},{id:'react',tag:'FRONTEND',title:'React & Next.js thực chiến',desc:'Xây dựng sản phẩm production với React, Next.js và TypeScript.',price:'1.290.000₫',old:'1.990.000₫',level:'Intermediate',time:'32 giờ',art:'REACT / 02'},{id:'node',tag:'BACKEND',title:'Backend Node.js & API Engineering',desc:'Thiết kế REST API, authentication, database và triển khai dịch vụ.',price:'1.190.000₫',old:'1.790.000₫',level:'Intermediate',time:'28 giờ',art:'NODE / 03'},{id:'ts',tag:'ENGINEERING',title:'TypeScript cho dự án lớn',desc:'Type system, generics, patterns và maintainable codebase.',price:'790.000₫',old:'1.190.000₫',level:'Intermediate',time:'18 giờ',art:'TS / 04'},{id:'full',tag:'BOOTCAMP',title:'Full-stack Developer Career Path',desc:'Lộ trình end-to-end từ frontend đến backend và deployment.',price:'2.490.000₫',old:'3.990.000₫',level:'Beginner → Advanced',time:'80 giờ',art:'FULL / 05'},{id:'git',tag:'TOOLING',title:'Git, GitHub & CI/CD Workflow',desc:'Làm việc nhóm, pull request, automation và release an toàn.',price:'590.000₫',old:'890.000₫',level:'Beginner',time:'12 giờ',art:'GIT / 06'}];
 const pathList=['/','/kham-pha','/danh-muc/javascript-fullstack','/gioi-thieu','/lien-he','/dang-nhap','/dang-ky','/quen-mat-khau','/dat-lai-mat-khau','/gio-hang','/thanh-toan','/thanh-toan/thanh-cong','/thanh-toan/that-bai','/hoc-vien/khoa-hoc-cua-toi','/hoc-vien/tai-khoan','/hoc-vien/lich-su-giao-dich','/hoc-vien/thong-bao','/bai-hoc/js/lesson-1','/dieu-khoan-su-dung','/chinh-sach-bao-mat','/tro-giup/faq','/blog','/lo-trinh'];
