@@ -22,6 +22,12 @@ for (const file of required) {
   if (!/border-radius\s*:\s*0/i.test(source)) {
     throw new Error(`${file} must preserve square-corner controls`);
   }
+  if (file === "index.html" && (!source.includes("const BASE_PATH=") || !source.includes("function applyBaseLinks("))) {
+    throw new Error("index.html must support the GitHub Pages /docs.rtf subpath");
+  }
+  if (file === "studio.html" && !source.includes('location.hostname==="ocodejs.co"')) {
+    throw new Error("studio.html must support the GitHub Pages /docs.rtf subpath");
+  }
 }
 
 await rm(output, { recursive: true, force: true });
