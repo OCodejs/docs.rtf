@@ -20,3 +20,5 @@ The build validates `index.html` and `studio.html`, then publishes only those tw
 ## Product boundaries
 
 This repository currently contains a static frontend prototype. Authentication, contact submission, student data, course purchases, and checkout are demonstrations only. No real payment or account operation is performed. Production launch requires backend integration, security review, privacy/legal review, and explicit production approval.
+
+The `fix/github-pages-subpath-routing` branch is also included in Preview builds so the `/docs.rtf` path fix can be tested before any further GitHub Pages release.
