@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 const root = process.cwd();
 const output = resolve(root, "dist");
 const required = ["index.html", "studio.html"];
+const browserHelpers = ["scripts/base-path.mjs"];
 
 for (const file of required) {
   const source = await readFile(resolve(root, file), "utf8");
@@ -22,17 +23,13 @@ for (const file of required) {
   if (!/border-radius\s*:\s*0/i.test(source)) {
     throw new Error(`${file} must preserve square-corner controls`);
   }
-  if (file === "index.html" && (!source.includes("const BASE_PATH=") || !source.includes("function applyBaseLinks("))) {
-    throw new Error("index.html must support the GitHub Pages /docs.rtf subpath");
-  }
-  if (file === "studio.html" && !source.includes('location.hostname==="ocodejs.co"')) {
-    throw new Error("studio.html must support the GitHub Pages /docs.rtf subpath");
-  }
 }
 
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const file of required) await cp(resolve(root, file), resolve(output, file));
+await mkdir(resolve(output, "scripts"), { recursive: true });
+for (const file of browserHelpers) await cp(resolve(root, file), resolve(output, file));
 // Cloudflare Pages automatically serves index.html for unmatched routes when
 // no top-level 404.html is present. GitHub Pages gets its own 404 fallback
 // in the Pages workflow after this build command.
