@@ -8,8 +8,11 @@ Mở `index.html` trực tiếp hoặc chạy static server:
 npx serve .
 ```
 
-## Triển khai GitHub Pages
-Workflow `.github/workflows/pages.yml` tự động deploy khi có thay đổi trên nhánh `main`. Trong GitHub, vào **Settings → Pages → Build and deployment → Source → GitHub Actions** nếu Pages chưa được bật.
+## Triển khai
+- Cloudflare Pages Preview dùng build command `node scripts/build-site.mjs`, output `dist/`; build chỉ xuất bản `index.html`, `studio.html`, app-shell fallback và metadata preview.
+- Preview có `_redirects` để hỗ trợ refresh các SPA route và `_headers` đặt `X-Robots-Tag: noindex, nofollow` để tránh index bản thử nghiệm.
+- GitHub Pages dùng workflow `.github/workflows/pages.yml` làm pipeline tự động duy nhất khi có thay đổi trên `main`. Các workflow `static.yml`, `jekyll-gh-pages.yml` và `jekyll.yml` là legacy/manual-only để tránh nhiều workflow ghi đè cùng Pages deployment.
+- Bản hiện tại chỉ deploy Preview; không tự bật domain riêng hoặc Production.
 
 ## Phạm vi hiện tại
 - Homepage, catalog/search/filter, category, course detail, cart (localStorage), checkout demo.
@@ -22,3 +25,7 @@ Backend/API, database, authentication/OAuth, payment gateway, video hosting, ema
 
 ## Source specification
 Xem README lịch sử và sitemap/wireframe ban đầu trong repository.
+
+## Build validation
+
+Run `node scripts/build-site.mjs` to validate required HTML metadata, Vietnamese document language, responsive viewport, and square-corner controls, then create the static deployment artifact in `dist/`.
